@@ -1,10 +1,3 @@
-export default {
-  getContacts,
-  getContactById,
-  deleteContact,
-  saveContact,
-  getEmptyContact
-}
 
 const contacts = [
   {
@@ -204,8 +197,6 @@ function filter(term) {
   })
 }
 
-
-
 function _makeId(length = 10) {
   var txt = ''
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -213,4 +204,12 @@ function _makeId(length = 10) {
     txt += possible.charAt(Math.floor(Math.random() * possible.length))
   }
   return txt
+}
+
+export const contactService =  {
+  getContacts,
+  getContactById,
+  deleteContact,
+  saveContact,
+  getEmptyContact
 }

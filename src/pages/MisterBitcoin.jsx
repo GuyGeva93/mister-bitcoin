@@ -1,8 +1,9 @@
 import { Component } from 'react'
 import { ContactList } from '../cmps/ContactList.jsx'
 import { bitcoinService } from '../services/bitcoinService.js'
-import contactService from '../services/contactService.js'
+import { contactService } from '../services/contactService.js'
 import { userService } from '../services/userService.js'
+// import { Contact } from './Contact.jsx'
 
 export class MisterBitcoin extends Component {
   state = {
@@ -37,7 +38,7 @@ export class MisterBitcoin extends Component {
   }
 
   render() {
-    const { user, bitcoinRate, showContacts } = this.state
+    const { user, bitcoinRate, showContacts, contacts } = this.state
     return (
       <div>
         <h1>Mister Bitcoin</h1>
@@ -46,9 +47,9 @@ export class MisterBitcoin extends Component {
           <h4>Your balance: {user.coins}BTC</h4>
           <h4>BTC rate: {bitcoinRate}</h4>
         </section>}
-        <section className="contact-list">
-          {showContacts ? <ContactList /> : <button onClick={() => this.toggleContacts}>Contact list</button>}
-        </section>
+        {contacts && <section>
+          {showContacts ? <ContactList contacts={contacts} /> : <button onClick={this.toggleContacts}>Contact list</button>}
+        </section>}
       </div>
     )
   }

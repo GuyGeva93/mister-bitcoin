@@ -1,0 +1,19 @@
+.contact-preview {
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 15px;
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+
+  .contact-preview-details {
+    position: absolute;
+    right: 40%;
+  }
+
+  h4 {
+    padding-inline-start: 10px;
+  }
+}
