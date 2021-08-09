@@ -1,12 +1,12 @@
+import { NavLink } from "react-router-dom"
 
 export function AppHeader() {
   return (
     <header className="app-header">
-      <h1>Mister Bitcoin</h1>
+      <NavLink to="/"><h1>Mister-Bitcoin</h1></NavLink>
       <nav>
-        <span>Home</span> |
-        <span> Contacts</span> |
-        <span> Charts</span>
+        <NavLink to="/contacts">Contacts</NavLink> |
+        <NavLink to="/charts"> Charts</NavLink> 
       </nav>
     </header>
   )
