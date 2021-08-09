@@ -22,7 +22,6 @@ export class ContactFilter extends Component {
         <label htmlFor="phone">Phone
           <input type="number" id="phone" onChange={this.onHandleChange} />
         </label>
-
       </form>
     )
   }

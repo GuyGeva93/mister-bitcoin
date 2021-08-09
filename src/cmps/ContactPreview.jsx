@@ -1,8 +1,6 @@
 import { Component } from 'react'
 import { Link } from "react-router-dom"
 import contactImg from '../assets/img/contact.png'
-import { contactService } from '../services/contactService'
-
 export class ContactPreview extends Component {
 
   onRemoveContact = async (ev) => {

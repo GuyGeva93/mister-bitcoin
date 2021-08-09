@@ -23,7 +23,7 @@ export class ContactDetails extends Component {
   }
   onEditContact = () => {
     const { id } = this.props.match.params
-    this.props.history.push('/contact/edit/' + id)
+    this.props.history.push('/edit/' + id)
   }
 
   render() {

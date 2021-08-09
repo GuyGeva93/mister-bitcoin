@@ -13,7 +13,7 @@ export function App() {
         <AppHeader />
         <Switch>
           <Route path="/contact/:id" component={ContactDetails} />
-          <Route path="/contact/edit/:id?" component={ContactEdit} />
+          <Route path="/edit/:id?" component={ContactEdit} />
           <Route path="/charts" component={Charts} />
           <Route path="/contact" component={ContactList} />
           <Route path="/" component={MisterBitcoin} />
