@@ -1,16 +1,16 @@
 .contact-preview {
   display: flex;
   align-items: center;
-  background-color: lightgrey;
+  justify-content: space-between;
   border-radius: 15px;
   width: 300px;
   height: 40px;
   cursor: pointer;
   background-color: #3e3e3e;
 
-  .contact-preview-details {
-    position: absolute;
-    right: 40%;
+  .contact-preview-container {
+    display: flex;
+    align-items: center;
   }
 
   h4 {
@@ -21,8 +21,9 @@
     width: 25px;
     padding-inline-start: 5px;
   }
+
+  &:hover {
+    background-color: darken(#3e3e3e, 10%);
+  }
 }
 
-.contact-preview-details img {
-  width: 25px;
-}

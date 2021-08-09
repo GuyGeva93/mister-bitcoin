@@ -18,8 +18,8 @@ export class Charts extends Component {
     console.log(this.state);
   }
   render() {
-    if (!this.state.marketPrice) return <div>Loading..</div>
     const { marketPrice } = this.state
+    if (!marketPrice) return <div>Loading..</div>
     return (
       <div>
         <h2 style={{'textAlign': 'center'}}>Market price</h2>

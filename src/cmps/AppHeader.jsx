@@ -5,7 +5,7 @@ export function AppHeader() {
     <header className="app-header">
       <NavLink to="/"><h1>Mister-Bitcoin</h1></NavLink>
       <nav>
-        <NavLink to="/contacts">Contacts</NavLink> |
+        <NavLink to="/contact">Contacts</NavLink> |
         <NavLink to="/charts"> Charts</NavLink> 
       </nav>
     </header>

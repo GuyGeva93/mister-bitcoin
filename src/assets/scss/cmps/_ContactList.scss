@@ -1,9 +1,16 @@
-.contact-list {
+.contact-list-container {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  // margin-inline-start: 5px;
+  justify-content: space-evenly;
+
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
 
   input {
     align-self: center;
