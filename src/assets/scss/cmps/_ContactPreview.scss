@@ -1,12 +1,12 @@
 .contact-preview {
   display: flex;
-  // justify-content: center;
   align-items: center;
   background-color: lightgrey;
   border-radius: 15px;
   width: 300px;
   height: 40px;
   cursor: pointer;
+  background-color: #3e3e3e;
 
   .contact-preview-details {
     position: absolute;
@@ -16,4 +16,13 @@
   h4 {
     padding-inline-start: 10px;
   }
+
+  img {
+    width: 25px;
+    padding-inline-start: 5px;
+  }
+}
+
+.contact-preview-details img {
+  width: 25px;
 }

@@ -41,7 +41,6 @@ export class MisterBitcoin extends Component {
     const { user, bitcoinRate, showContacts, contacts } = this.state
     return (
       <div>
-        <h1>Mister Bitcoin</h1>
         {user && <section className="userDetails">
           <h3>Hello {user.name}</h3>
           <h4>Your balance: {user.coins}BTC</h4>
