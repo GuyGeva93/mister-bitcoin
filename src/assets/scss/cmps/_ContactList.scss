@@ -1,11 +1,18 @@
 .contact-list-container {
   display: flex;
-  justify-content: space-evenly;
-
+  justify-content: center;
+  gap: 100px;
   .contact-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .add-contact {
+    opacity: 1;
+    color: gold;
+    font-size: 1.2rem;
+    padding: 0;
   }
 
   a {

@@ -1,3 +1,4 @@
+import { storageService } from "./storageService";
 
 const contacts = [
   {
@@ -117,6 +118,8 @@ const contacts = [
   }
 ];
 
+const KEY = 'contact'
+
 function sort(arr) {
   return arr.sort((a, b) => {
     if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
@@ -132,7 +135,11 @@ function sort(arr) {
 
 function getContacts(filterBy = null) {
   return new Promise((resolve, reject) => {
-    var contactsToReturn = contacts;
+    var contactsToReturn = storageService.loadFromStorage(KEY)
+    if (!contactsToReturn || !contactsToReturn.length) {
+      contactsToReturn = contacts
+      storageService.saveToStorage(KEY, contactsToReturn)
+    }
     if (filterBy && filterBy.term) {
       contactsToReturn = filter(filterBy.term)
     }
@@ -142,6 +149,7 @@ function getContacts(filterBy = null) {
 
 function getContactById(id) {
   return new Promise((resolve, reject) => {
+    const contacts = storageService.loadFromStorage(KEY)
     const contact = contacts.find(contact => contact._id === id)
     contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
   })
@@ -153,6 +161,7 @@ function deleteContact(id) {
     if (index !== -1) {
       contacts.splice(index, 1)
     }
+    storageService.saveToStorage(KEY, contacts)
     resolve(contacts)
   })
 }
@@ -163,6 +172,7 @@ function _updateContact(contact) {
     if (index !== -1) {
       contacts[index] = contact
     }
+    storageService.saveToStorage(KEY, contacts)
     resolve(contact)
   })
 }
@@ -171,6 +181,7 @@ function _addContact(contact) {
   return new Promise((resolve, reject) => {
     contact._id = _makeId()
     contacts.push(contact)
+    storageService.saveToStorage(KEY, contacts)
     resolve(contact)
   })
 }
@@ -205,7 +216,7 @@ function _makeId(length = 10) {
   return txt
 }
 
-export const contactService =  {
+export const contactService = {
   getContacts,
   getContactById,
   deleteContact,

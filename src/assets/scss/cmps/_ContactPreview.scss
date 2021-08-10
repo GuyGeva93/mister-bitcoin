@@ -8,6 +8,13 @@
   cursor: pointer;
   background-color: #3e3e3e;
 
+  &:hover {
+    .remove {
+      display: block;
+      color: white;
+    }
+  }
+
   .contact-preview-container {
     display: flex;
     align-items: center;
@@ -25,5 +32,10 @@
   &:hover {
     background-color: darken(#3e3e3e, 10%);
   }
+
+  .remove{
+    display: none
+  }
+  
 }
 

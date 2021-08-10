@@ -1,21 +1,18 @@
 import { Component } from 'react'
-import { contactService } from '../services/contactService'
+import { connect } from 'react-redux'
+// import { contactService } from '../services/contactService'
 import contactImg from '../assets/img/contact.png'
+import { loadContact } from '../store/actions/contactActions'
 
 
-export class ContactDetails extends Component {
-  state = {
-    contact: null
-  }
+class _ContactDetails extends Component {
+  // state = {
+  //   contact: null
+  // }
 
   componentDidMount() {
-    this.loadContact()
-  }
-
-  loadContact = async () => {
     const { id } = this.props.match.params
-    const contact = await contactService.getContactById(id)
-    this.setState({ contact })
+    this.props.loadContact(id)
   }
 
   onCloseContact = () => {
@@ -27,7 +24,7 @@ export class ContactDetails extends Component {
   }
 
   render() {
-    const { contact } = this.state
+    const { contact } = this.props
     if (!contact) return <div>Loading..</div>
     return (
       <div>
@@ -45,3 +42,17 @@ export class ContactDetails extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    contact: state.contactModule.currContact
+  }
+}
+
+const mapDispatchToProps = {
+  loadContact
+}
+
+// Connects the store with the component, injects it to the props
+export const ContactDetails = connect(mapStateToProps, mapDispatchToProps)(_ContactDetails)
+
